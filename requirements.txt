@@ -5,3 +5,4 @@ webdriver-manager
 urllib3
 pymupdf
 requests
+wikipedia-api
