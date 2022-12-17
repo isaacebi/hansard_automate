@@ -19,7 +19,7 @@ automate = DED.automate_hansard(
     URL='https://www.parlimen.gov.my/hansard-dewan-rakyat.html?uweb=dr&arkib=yes'
 )
 
-dr = automate.hansard_date(headless=False)
+dr = automate.hansard_date(headless=True)
 attendance = automate.DED(dr)
 
 # %%
