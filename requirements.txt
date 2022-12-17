@@ -1,0 +1,7 @@
+pandas
+numpy
+selenium
+webdriver-manager
+urllib3
+pymupdf
+requests
