@@ -383,9 +383,6 @@ class automate_hansard:
         TEMP = os.path.join(self.parentPath, 'TEMP')
         CSV = os.path.join(TEMP, 'temporary.csv')
 
-        # delete for manual stop cases
-        shutil.rmtree(TEMP)
-
         # create folder
         checkFolder(TEMP)
 
