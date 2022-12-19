@@ -12,15 +12,10 @@ ATTENDANCE = os.path.join(RESULTS, 'attendance.csv')
 ATTENDANCE2 = os.path.join(RESULTS, 'attendance2.csv')
 
 # %%
-import src.download_extract_delete as DED
+import src.fromHansard as hansard
 
-automate = DED.automate_hansard(
-    parentPath=PARENT,
-    URL='https://www.parlimen.gov.my/hansard-dewan-rakyat.html?uweb=dr&arkib=yes'
-)
-
-dr = automate.hansard_date(headless=False)
-attendance = automate.DED(dr)
+scraper = hansard.Scrape(parentPath=PARENT, URL='https://www.parlimen.gov.my/hansard-dewan-rakyat.html?uweb=dr&arkib=yes')
+scraper.hansard_session()
 
 # %%
 # # get all available hansard date
