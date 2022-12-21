@@ -15,7 +15,8 @@ ATTENDANCE2 = os.path.join(RESULTS, 'attendance2.csv')
 import src.fromHansard as hansard
 
 scraper = hansard.Scrape(parentPath=PARENT, URL='https://www.parlimen.gov.my/hansard-dewan-rakyat.html?uweb=dr&arkib=yes')
-scraper.hansard_session()
+session = scraper.hansard_session()
+sorted_session = scraper.groupSessionURL(session)
 
 # %%
 # # get all available hansard date

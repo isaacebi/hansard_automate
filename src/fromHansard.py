@@ -183,3 +183,23 @@ class Scrape:
         df['path'] = df['parlimen'].str.cat(df[['penggal', 'mesyuarat']], sep=',')
         df['path'] = df['path'].apply(lambda x: x.split(','))
         df.to_csv(ARKIB, index=False)
+
+        return df
+
+    def groupSessionURL(self, df):
+        SESSION = os.path.join(self.parentPath, 'results', 'sorted_session.csv')
+
+        grouped = df.groupby('parlimen')['url'].sum()
+
+        sorted_session = []
+        for i in range(len(grouped)):
+            session = {
+                'parlimen': grouped.index[i],
+                'session': grouped[i]
+            }
+            sorted_session.append(session)
+
+        sorted_session = pd.DataFrame(sorted_session)
+        sorted_session.to_csv(SESSION)
+        
+        return sorted_session
